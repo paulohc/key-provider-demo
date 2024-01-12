@@ -11,8 +11,8 @@ import kotlinx.serialization.json.Json
 
 @Api("provide")
 suspend fun keyProvider(context: ApiContext) {
-    val firstKey = "123"
-    val secondKey = "456"
+    val firstKey = System.getenv("FIRST_KEY")
+    val secondKey = System.getenv("SECOND_KEY")
     try {
         val publicKey = context.req.body?.decodeToString()
         context.logger.debug("PUBLIC KEY: $publicKey")
